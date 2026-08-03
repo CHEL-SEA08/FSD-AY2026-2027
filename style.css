@@ -1,224 +1,48 @@
-*{
-       margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-body{
-    font-family:Arial, sans-serif;
-    background:#f4f4f4;
-    color:#333;
+.quiz-container {
+    background: white;
+    width: 380px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
 }
 
-/* Header - Flexbox */
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#333;
-    color:white;
-    padding:20px;
+#timer {
+    color: rgb(22, 3, 3);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-nav{
-    display:flex;
-    gap:20px;
+#options {
+    text-align: left;
+    margin: 20px 0;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
+button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-nav a:hover{
-    color:pink;
-}
-/* Reset */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+button:hover {
+    background: #0056b3;
 }
 
-/* Body */
-body{
-    font-family:Arial, sans-serif;
-    background:#f4f4f4;
-    color:#333;
-}
-
-/* Header */
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#333;
-    color:white;
-    padding:20px;
-}
-/* Profile Image beside Name */
-.profile{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.profile img{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid white;
-}
-
-.profile h1{
-    margin:0;
-}
-.resume-image{
-    text-align:center;
-    margin:20px 0;
-}
-
-.resume-image img{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #007BFF;
-}
-
-nav{
-    display:flex;
-    gap:20px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:pink;
-}
-
-/* Main Container */
-.container{
-    display:grid;
-    gap:20px;
-    padding:20px;
-}
-
-/* Cards */
-.card{
-    background:white;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.2);
-}
-
-/* Experience Grid */
-.Experience-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-top:15px;
-}
-
-/* Experience Cards */
-.Experience{
-    background:white;
-    color:#333;
-    padding:20px;
-    text-align:center;
-    border-radius:8px;
-    border:1px solid #ccc;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-    transition:all 0.3s ease;
-    cursor:pointer;
-}
-
-/* Hover Effect */
-.Experience:hover{
-    background:#0b488a;
-    color:white;
-    transform:translateY(-5px);
-    box-shadow:0 8px 15px rgba(0,0,0,0.2);
-}
-
-/* Footer */
-footer{
-    text-align:center;
-    background:#333;
-    color:white;
-    padding:15px;
-    margin-top:20px;
-}
-
-/* Responsive */
-@media (max-width:768px){
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        flex-direction:column;
-        align-items:center;
-    }
-}
-
-/* Main Layout - CSS Grid */
-.container{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-    padding:20px;
-}
-
-/* Card */
-.card{
-    background:white;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.2);
-}
-
-/* Projects - CSS Grid */
-.project-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    margin-top:15px;
-}
-
-.project{
-    background:#007BFF;
-    color:white;
-    padding:20px;
-    text-align:center;
-    border-radius:8px;
-}
-
-/* Footer */
-footer{
-    text-align:center;
-    background:#333;
-    color:white;
-    padding:15px;
-    margin-top:20px;
-}
-
-/* Responsive */
-@media (max-width:768px){
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        flex-direction:column;
-        align-items:center;
-    }
-
+#result {
+    margin-top: 20px;
+    color: green;
 }
