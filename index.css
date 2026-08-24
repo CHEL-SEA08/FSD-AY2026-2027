@@ -1,19 +1,86 @@
-html {
-  scroll-behavior: smooth;
+.blog {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
+.blog h2 {
+  margin-bottom: 30px;
 }
 
-button,
-a {
-  font-family: inherit;
+.posts {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
-button:focus-visible,
-a:focus-visible {
-  outline: 3px solid #646cff;
-  outline-offset: 3px;
+.post {
+  width: 30%;
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-top: 5px solid #3498db;
+}
+
+/* Beach */
+.post:nth-child(1) {
+  background: #eaf7ff;
+  border-top-color: #3498db;
+}
+
+/* Mountains */
+.post:nth-child(2) {
+  background: #eef8ee;
+  border-top-color: #4caf50;
+}
+
+/* City */
+.post:nth-child(3) {
+  background: #fff4e6;
+  border-top-color: #f39c12;
+}
+button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+.article {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 30px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.article h2 {
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.article p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 700px) {
+  .posts {
+    flex-direction: column;
+  }
+
+  .post {
+    width: 100%;
+  }
 }

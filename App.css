@@ -1,20 +1,21 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #222;
+  background: #f5f5f5;
+  color: #333;
 }
 
 .app {
   min-height: 100vh;
 }
 
-.header {
+/* Header */
+
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,13 +24,14 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-.header h1 {
+header h1 {
+  margin: 0;
   font-size: 24px;
 }
 
 nav {
   display: flex;
-  gap: 24px;
+  gap: 25px;
 }
 
 nav a {
@@ -38,82 +40,38 @@ nav a {
 }
 
 nav a:hover {
-  color: #646cff;
+  color: #0077cc;
 }
+
+/* Hero */
 
 .hero {
   text-align: center;
   padding: 90px 20px;
-  background: #646cff;
-  color: white;
+  background: #e8f1f7;
 }
 
 .hero h2 {
-  font-size: 42px;
   margin-bottom: 15px;
+  font-size: 40px;
 }
 
 .hero p {
+  color: #666;
   font-size: 18px;
 }
 
-.posts {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-.posts > h2,
-.about h2 {
-  margin-bottom: 25px;
-}
-
-.post-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-.post-card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-}
-
-.post-card span {
-  font-size: 13px;
-  color: #777;
-}
-
-.post-card h3 {
-  margin: 12px 0;
-}
-
-.post-card p {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.post-card button {
-  border: none;
-  background: #646cff;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.post-card button:hover {
-  background: #535bf2;
-}
+/* About */
 
 .about {
   max-width: 700px;
-  margin: 80px auto;
-  padding: 0 20px;
+  margin: 60px auto;
+  padding: 20px;
   text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 20px;
 }
 
 .about p {
@@ -121,24 +79,123 @@ nav a:hover {
   line-height: 1.7;
 }
 
-footer {
+/* Blog */
+
+.blog {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
   text-align: center;
-  padding: 30px;
-  background: #222;
+}
+
+.blog h2 {
+  margin-bottom: 30px;
+}
+
+.posts {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.post {
+  width: 30%;
+  padding: 25px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.post h3 {
+  margin-top: 0;
+}
+
+.post p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+
+button {
+  border: none;
+  padding: 10px 16px;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+.back-button {
+  background: transparent;
+  color: #333;
+  border: 1px solid #333;
+}
+
+.back-button:hover {
+  background: #333;
   color: white;
 }
 
-@media (max-width: 768px) {
-  .header {
+/* Full Article */
+
+.article {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.article h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.article p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 60px;
+  padding: 25px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  header {
     flex-direction: column;
     gap: 15px;
   }
 
-  .post-grid {
-    grid-template-columns: 1fr;
+  .posts {
+    flex-direction: column;
+  }
+
+  .post {
+    width: 100%;
   }
 
   .hero h2 {
     font-size: 32px;
+  }
+
+  .article {
+    margin: 40px 20px;
   }
 }
