@@ -1,133 +1,35 @@
 const express = require("express");
-
 const app = express();
-
 const PORT = 3000;
 
-// Middleware
 app.use(express.json());
 
-// Book data
-let books = [
-    {
-        id: 1,
-        title: "The Alchemist",
-        author: "Paulo Coelho",
-        price: 350
-    },
-    {
-        id: 2,
-        title: "Wings of Fire",
-        author: "A. P. J. Abdul Kalam",
-        price: 450
-    },
-    {
-        id: 3,
-        title: "The Guide",
-        author: "R. K. Narayan",
-        price: 300
-    }
+let students = [
+    { name: "Dwayitha", rollNo: "160121733001", attendancePercentage: 78 },
+    { name: "Sudiksha", rollNo: "160121733002", attendancePercentage: 72 }, // Matches (65 < 72 < 75)
+    { name: "Sahasra", rollNo: "160121733003", attendancePercentage: 64 },
+    { name: "Ria", rollNo: "160121733004", attendancePercentage: 68 }, // Matches (65 < 68 < 75)
+    { name: "Rahul", rollNo: "160121733005", attendancePercentage: 85 },
+    { name: "Neha", rollNo: "160121733006", attendancePercentage: 74 }  // Matches (65 < 74 < 75)
 ];
 
-// Home route
 app.get("/", (req, res) => {
-    res.send("Book Management REST API is running");
+    res.send("CBIT Student Attendance API is running");
 });
 
-// GET - All books
-app.get("/api/books", (req, res) => {
-    res.json(books);
+app.get("/api/students", (req, res) => {
+    res.json(students);
 });
 
-// GET - Book by ID
-app.get("/api/books/:id", (req, res) => {
-
-    const id = parseInt(req.params.id);
-
-    const book = books.find(book => book.id === id);
-
-    if (!book) {
-        return res.status(404).json({
-            message: "Book not found"
-        });
-    }
-
-    res.json(book);
+app.get("/api/students/shortage", (req, res) => {
+    const filteredStudents = students.filter(
+        student => student.attendancePercentage > 65 && student.attendancePercentage < 75
+    );
+   
+    res.json(filteredStudents);
 });
 
-// POST - Add new book
-app.post("/api/books", (req, res) => {
-
-    const { title, author, price } = req.body;
-
-    if (!title || !author || !price) {
-        return res.status(400).json({
-            message: "Title, author and price are required"
-        });
-    }
-
-    const newBook = {
-        id: books.length + 1,
-        title: title,
-        author: author,
-        price: price
-    };
-
-    books.push(newBook);
-
-    res.status(201).json({
-        message: "Book added successfully",
-        book: newBook
-    });
-});
-
-// PUT - Update book
-app.put("/api/books/:id", (req, res) => {
-
-    const id = parseInt(req.params.id);
-
-    const book = books.find(book => book.id === id);
-
-    if (!book) {
-        return res.status(404).json({
-            message: "Book not found"
-        });
-    }
-
-    const { title, author, price } = req.body;
-
-    book.title = title || book.title;
-    book.author = author || book.author;
-    book.price = price || book.price;
-
-    res.json({
-        message: "Book updated successfully",
-        book: book
-    });
-});
-
-// DELETE - Delete book
-app.delete("/api/books/:id", (req, res) => {
-
-    const id = parseInt(req.params.id);
-
-    const index = books.findIndex(book => book.id === id);
-
-    if (index === -1) {
-        return res.status(404).json({
-            message: "Book not found"
-        });
-    }
-
-    const deletedBook = books.splice(index, 1);
-
-    res.json({
-        message: "Book deleted successfully",
-        book: deletedBook[0]
-    });
-});
-
-// Start server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
+
